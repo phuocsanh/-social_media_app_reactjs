@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5rem 0 3rem;
+
+  // background-color: rgb(25, 128, 93);
+}
+.img-left {
+  width: 60%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url("https://cdn.searchenginejournal.com/wp-content/uploads/2021/09/16-reasons-why-social-media-is-important-to-your-company-616d3200e6dc6-sej.png");
+}
+.form {
+  margin-top: 4rem;
+  width: 24rem;
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+}
+.text-field {
+  width: 100%;
+}
