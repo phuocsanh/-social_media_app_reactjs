@@ -6,6 +6,7 @@ import PageRender from "./PageRender";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import Header from "./components/header";
 import { refreshToken } from "./redux/actions/authAction";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -41,15 +42,12 @@ function App() {
             />
           )}
         </div>
+        <Header />
 
-        {/* <div className="main"> */}
         <Route exact path={"/"} component={auth ? Home : Login} />
-
-        {/* <Route exact path="/login" component={Login} /> */}
-        <Route exact path="/register" component={Register} />
+        <Route path="/register" component={Register} />
         <Route path={"/:page"} component={PageRender} />
         <Route path={"/:page/:id"} component={PageRender} />
-        {/* </div> */}
       </div>
     </Router>
   );

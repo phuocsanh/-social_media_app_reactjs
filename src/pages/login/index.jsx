@@ -41,9 +41,9 @@ const Login = () => {
     else setValidateFieldPass(null);
   };
 
-  // useEffect(() => {
-  //   if (auth.token) history.push("/");
-  // }, [auth.token, history]);
+  useEffect(() => {
+    if (auth?.token) history.push("/");
+  }, [auth?.token, history]);
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -92,7 +92,7 @@ const Login = () => {
         autoComplete="off"
       >
         <div className={styles.form}>
-          <h3>LOGIN</h3>
+          <h3 className={styles.login}>LOGIN</h3>
           <div style={{ marginTop: "2rem" }}></div>
           <TextField
             style={{ width: "100%", marginLeft: 0 }}

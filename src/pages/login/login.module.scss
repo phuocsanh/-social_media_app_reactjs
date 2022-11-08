@@ -1,12 +1,17 @@
+@import "../../sass/variables.scss";
+
 .container {
   display: flex;
   justify-content: space-between;
+
   padding: 0 5rem 0 0;
 
   // background-color: rgb(25, 128, 93);
 }
 .img-left {
   width: 60%;
+  height: fit-content;
+  margin-top: -2.3rem;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -21,4 +26,10 @@
 }
 .text-field {
   width: 100%;
+}
+.login {
+  background: linear-gradient(to right, $primary, $purple2, $green1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }

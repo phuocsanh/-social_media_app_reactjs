@@ -1,3 +1,5 @@
+@import "../../sass/variables.scss";
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -12,8 +14,14 @@
   background-position: center;
   background-image: url("https://cdn.searchenginejournal.com/wp-content/uploads/2021/09/16-reasons-why-social-media-is-important-to-your-company-616d3200e6dc6-sej.png");
 }
+.register {
+  background: linear-gradient(to right, $primary, $purple2, $green1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
 .form {
-  margin-top: 4rem;
+  margin-top: 1rem;
   width: 24rem;
   display: flex;
   flex: 3;
