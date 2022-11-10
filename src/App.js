@@ -16,7 +16,7 @@ import { useEffect } from "react";
 function App() {
   const loading = useSelector((state) => state.appReducer.loading);
   const auth = useSelector((state) => state.authReducer.auth);
-  console.log("🚀 ~ file: App.js ~ line 17 ~ App ~ auth", auth);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshToken());
@@ -42,7 +42,7 @@ function App() {
             />
           )}
         </div>
-        <Header />
+        {auth && <Header />}
 
         <Route exact path={"/"} component={auth ? Home : Login} />
         <Route path="/register" component={Register} />

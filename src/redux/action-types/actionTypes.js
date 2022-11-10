@@ -4,4 +4,5 @@ export const authActionTypes = {
 export const appActionTypes = {
   notify: "NOTIFY",
   loading: "LOADING",
+  theme: "THEME",
 };

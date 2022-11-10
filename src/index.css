@@ -15,7 +15,8 @@ code {
   display: none;
 }
 #theme:checked ~ .App {
-  filter: invert(1);
+  /* filter: invert(1); */
+  background-color: rgb(255, 0, 221);
 }
 .App {
   width: 100%;

@@ -17,9 +17,11 @@ export const login = (data) => async (dispatch) => {
       dispatch({ type: appActionTypes.loading, payload: false });
     } else {
       toast.error(res.data.msg);
+      dispatch({ type: appActionTypes.loading, payload: false });
     }
   } catch (error) {
     toast.error("Server error");
+    dispatch({ type: appActionTypes.loading, payload: false });
   }
 };
 export const register = (data) => async (dispatch) => {
@@ -58,14 +60,13 @@ export const refreshToken = () => async (dispatch) => {
   }
 };
 export const logout = () => async (dispatch) => {
-  console.log("🚀 ~ file: authAction.js ~ line 69 ~ logout ~ logout");
-
   try {
     localStorage.removeItem("firstLogin");
     await postDataAPI("logout");
-    window.location.reload().href = "/";
+    dispatch({ type: authActionTypes.auth, payload: null });
+
+    window.location.replace("/");
   } catch (error) {
-    console.log("🚀 ~ file: authAction.js ~ line 68 ~ logout ~ error", error);
     toast.error("Server error");
   }
 };

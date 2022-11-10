@@ -15,6 +15,7 @@ export const postDataAPI = async (url, post, token) => {
       Accept: "application/json",
     },
   });
+  console.log("🚀 ~ file: fetchData.js ~ line 18 ~ postDataAPI ~ res", res);
   return res;
 };
 export const putDataAPI = async (url, post, token) => {
