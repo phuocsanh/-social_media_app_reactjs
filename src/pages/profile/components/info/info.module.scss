@@ -1,0 +1,113 @@
+@import "../../../../sass/variables.scss";
+.container {
+  height: 100vh;
+  //   background-color: aqua;
+}
+.img {
+  width: 80%;
+  height: 18rem;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: repeat-x;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.top {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 28rem;
+}
+.info {
+  padding: 1rem 4rem;
+  position: absolute;
+  height: 200px;
+  width: 70%;
+  display: flex;
+  bottom: 0;
+  border-bottom: 1px solid $grayPrimary;
+
+  .info-btn {
+    align-self: flex-end;
+    margin-left: auto;
+    display: flex;
+    div {
+      margin-left: 1rem;
+      border-radius: 0.3rem;
+      padding: 4px 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        border: none;
+        background-color: transparent;
+        font-size: $fontSizeBtn;
+        font-weight: 600;
+      }
+    }
+    div:nth-child(1) {
+      background-color: $grayPrimary;
+    }
+    div:nth-child(2) {
+      background-color: $primary;
+      button {
+        color: white;
+      }
+    }
+    .edit-profile__btn {
+      button {
+        font-size: $fontSizeBtn;
+      }
+    }
+  }
+}
+.avatar {
+  object-fit: cover;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+
+  border: solid 0.3rem white;
+}
+.div-avatar {
+  position: relative;
+  cursor: pointer;
+  //   background-color: aquamarine;
+  div {
+    position: absolute;
+    background-color: rgb(212, 212, 212);
+    border-radius: 50%;
+    padding: 0.2rem;
+    right: 0px;
+    bottom: 1.5rem;
+    cursor: pointer;
+  }
+}
+.user-info {
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  span {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .follow {
+    margin-bottom: 0.5rem;
+    text-align: left;
+    // background-color: aquamarine;
+    span {
+      font-size: 1rem;
+      font-weight: 100;
+      color: rgb(112, 112, 112);
+    }
+    span:nth-child(2) {
+      margin-left: 1rem;
+    }
+  }
+}

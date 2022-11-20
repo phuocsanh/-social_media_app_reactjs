@@ -1,0 +1,12 @@
+@import "../../sass/variables.scss";
+.users-search {
+  position: absolute;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 1rem 0.3rem 0.3rem;
+  border-bottom-left-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+  z-index: 10;
+}

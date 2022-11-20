@@ -6,3 +6,8 @@ export const appActionTypes = {
   loading: "LOADING",
   theme: "THEME",
 };
+
+export const profileActionTypes = {
+  getUsers: "GET_USERS",
+  getPosts: "GET_POSTS",
+};

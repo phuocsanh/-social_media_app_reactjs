@@ -2,12 +2,13 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector, useDispatch } from "react-redux";
-import PageRender from "./PageRender";
+import PageRender from "./customRouter/PageRender";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Header from "./components/header";
 import { refreshToken } from "./redux/actions/authAction";
+import PrivateRouter from "./customRouter/PrivateRouter";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HashLoader from "react-spinners/HashLoader";
@@ -45,9 +46,10 @@ function App() {
         {auth && <Header />}
 
         <Route exact path={"/"} component={auth ? Home : Login} />
-        <Route path="/register" component={Register} />
-        <Route path={"/:page"} component={PageRender} />
-        <Route path={"/:page/:id"} component={PageRender} />
+        <Route exact path="/register" component={Register} />
+        {/* <Route path={"/:page"} component={PageRender} /> */}
+        <PrivateRouter path={"/:page"} component={PageRender} />
+        {/* <Route path={"/:page/:id"} component={PageRender} /> */}
       </div>
     </Router>
   );

@@ -269,7 +269,7 @@ const Register = () => {
 
           <div style={{ marginTop: "2rem" }}>
             <p>
-              Already have an account <Link to="/login">Login</Link>
+              Already have an account <Link to="/">Login</Link>
             </p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,12 +8,12 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/HomeSharp";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
+import styles from "./header.module.scss";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ChatIcon from "@mui/icons-material/Chat";
 import { styled, alpha } from "@mui/material/styles";
@@ -21,8 +21,9 @@ import InputBase from "@mui/material/InputBase";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../redux/actions/authAction";
-import { theme } from "../../redux/actions/appAction";
 
+import { getDataAPI } from "../../utils/fetchData";
+import { display } from "@mui/system";
 const settings = ["Drak mode"];
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -66,11 +67,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function ResponsiveAppBar() {
   const dispatch = useDispatch();
+
   const auth = useSelector((state) => state?.authReducer?.auth);
-  console.log("🚀 ~ file: index.jsx ~ line 70 ~ ResponsiveAppBar ~ auth", auth);
+  // console.log("🚀 ~ file: index.jsx ~ line 70 ~ ResponsiveAppBar ~ auth", auth);
+  const [users, setUsers] = React.useState([]);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [search, setSearch] = React.useState("");
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -97,6 +101,21 @@ function ResponsiveAppBar() {
       dispatch(logout());
     }
   };
+  useEffect(() => {
+    let delayDebounceFn;
+    if (search) {
+      delayDebounceFn = setTimeout(() => {
+        getDataAPI(`search?userName=${search}`, auth?.token)
+          .then((res) => setUsers(res.data.user))
+          .catch((error) => {
+            alert("Error: " + error);
+          });
+      }, [2000]);
+    }
+    return () => {
+      clearTimeout(delayDebounceFn);
+    };
+  }, [search, auth?.token, dispatch]);
 
   return (
     <AppBar position="static">
@@ -215,7 +234,51 @@ function ResponsiveAppBar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value.toLowerCase().replace(/ /g, ""));
+              }}
             />
+
+            <div
+              className={styles["users-search"]}
+              style={
+                users.length === 0 || search.length === 0
+                  ? { display: "none" }
+                  : {}
+              }
+            >
+              {users?.map((user, index) => {
+                return (
+                  <Link
+                    to={{
+                      pathname: "/profile",
+                      state: { fromDashboard: true, id: user._id },
+                    }}
+                    onClick={() => {
+                      setSearch("");
+                    }}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <div>
+                      <img
+                        style={{
+                          width: "1rem",
+                          height: "1rem",
+                          marginRight: "0.5rem",
+                        }}
+                        src={user?.avatar}
+                      />
+                      <span style={{ color: "blue" }}>{user?.userName}</span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </Search>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -248,7 +311,10 @@ function ResponsiveAppBar() {
             >
               <Link
                 style={{ textDecoration: "none", color: "black" }}
-                to={`/profile/${auth?.user?._id}`}
+                to={{
+                  pathname: `/profile`,
+                  state: { fromDashboard: true, id: "haha" },
+                }}
               >
                 <MenuItem>
                   <Typography textAlign="center">{"Profile"}</Typography>
