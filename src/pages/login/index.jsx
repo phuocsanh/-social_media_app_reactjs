@@ -10,7 +10,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Button } from "@mui/material";
 import styles from "./login.module.scss";
 import * as animationData from "../../images/91955-social-media-network.json";
-import { login } from "../../redux/actions/authAction";
+import { getUserIsLogin, login } from "../../redux/actions/authAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 const defaultOptions = {
@@ -74,7 +74,17 @@ const Login = () => {
     }
     if (!isError) {
       // console.log("values", values);
-      dispatch(login({ email: values.email, password: values.password }));
+      dispatch(
+        login(
+          { email: values.email, password: values.password },
+          {
+            onSuccess: (id, token) => {
+              dispatch(getUserIsLogin(id, token));
+            },
+            onFail: () => {},
+          }
+        )
+      );
     }
   };
   return (

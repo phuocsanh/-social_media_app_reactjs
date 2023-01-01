@@ -9,8 +9,10 @@ function FormInput({
   styleDiv,
   placeholder,
   inputProps,
+  onKeyPress,
   label,
   IconLeft,
+  onChangeCustom,
   classDivInput,
   errProps,
   containerProps,
@@ -29,6 +31,7 @@ function FormInput({
           className={stylesScss["input-form"]}
           style={styleInput}
           onBlur={onBlur}
+          onKeyPress={onKeyPress}
           onChange={onChange}
           value={value}
           placeholder={placeholder}
@@ -36,7 +39,16 @@ function FormInput({
         />
       </div>
       {error?.message && (
-        <p style={{ marginTop: "0.2rem" }}>{error?.message}</p>
+        <p
+          style={{
+            marginTop: "0.2rem",
+            color: "red",
+            fontSize: 12,
+            marginBottom: 0,
+          }}
+        >
+          {error?.message}
+        </p>
       )}
     </div>
   );

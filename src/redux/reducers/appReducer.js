@@ -3,6 +3,7 @@ const initialState = {
   notify: "",
   loading: false,
   theme: false,
+  userId:null
 };
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,6 +13,8 @@ const appReducer = (state = initialState, action) => {
       return { ...state, loading: action.payload };
     case appActionTypes.theme:
       return { ...state, theme: action.payload };
+    case appActionTypes.saveUserId:
+      return { ...state, userId: action.payload };
 
     default:
       return state;

@@ -1,0 +1,27 @@
+@import "../../sass/variables.scss";
+
+.container {
+  display: flex;
+  width: 2rem;
+  flex-direction: row;
+  border-radius: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.1rem;
+}
+
+.colorPrimary {
+  background-color: #1976d2;
+  color: white;
+}
+.colorGray {
+  background-color: #cdd1d4;
+  color: black;
+}
+button {
+  color: inherit;
+  outline: none;
+  border: 0px;
+  background-color: transparent;
+}

@@ -1,7 +1,6 @@
 @import "../../../../sass/variables.scss";
 .container {
-  height: 100vh;
-  //   background-color: aqua;
+  // background-color: aqua;
 }
 .img {
   width: 80%;
@@ -13,12 +12,36 @@
   background-repeat: repeat-x;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  @include media(">tablet", "<=desktop") {
+    width: 80%;
+    height: 13rem;
+  }
+
+  @include media(">phone", "<=tablet") {
+    width: 80%;
+    height: 13rem;
+  }
+
+  @include media("<=phone") {
+    width: 100%;
+    height: 8rem;
+  }
 }
 .top {
   display: flex;
   justify-content: center;
   position: relative;
   height: 28rem;
+
+  @include media(">phone", "<=tablet") {
+    background-color: aqua;
+    height: 22rem;
+  }
+  @include media("<=phone") {
+    height: 14rem;
+    background-color: aqua;
+  }
+  // background-color: aqua;
 }
 .info {
   padding: 1rem 4rem;
@@ -27,12 +50,23 @@
   width: 70%;
   display: flex;
   bottom: 0;
-  border-bottom: 1px solid $grayPrimary;
+  // border-bottom: 1px solid $grayPrimary;
+  @include media(">tablet", "<=desktop") {
+    bottom: 5rem;
+  }
+  @include media(">phone", "<=tablet") {
+    bottom: -1rem;
+  }
+  @include media("<=phone") {
+    bottom: -4.5rem;
+    width: 100%;
+  }
 
   .info-btn {
     align-self: flex-end;
     margin-left: auto;
     display: flex;
+
     div {
       margin-left: 1rem;
       border-radius: 0.3rem;
@@ -40,12 +74,70 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      @include media("<=phone") {
+        transform: translate(-3.5rem, -0.7rem);
 
-      button {
+        // width: 10rem;
+        // background-color: aqua;
+      }
+      .btn-cancel {
+        border: none;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        font-size: $fontSizeBtn;
+        font-weight: 600;
+        @include media(">tablet", "<=desktop") {
+          width: 4.5rem;
+          height: 1.2rem;
+          font-size: 0.6rem;
+        }
+        @include media(">phone", "<=tablet") {
+          width: 4.5rem;
+          height: 1.2rem;
+          font-size: 0.6rem;
+        }
+        @include media("<=phone") {
+          width: 4rem;
+          height: 1rem;
+          padding: 2px 3px;
+          font-size: 0.6rem;
+        }
+      }
+      .btn-texting {
         border: none;
         background-color: transparent;
         font-size: $fontSizeBtn;
         font-weight: 600;
+
+        @include media(">tablet", "<=desktop") {
+          width: 3.3rem;
+          height: 1.2rem;
+          font-size: 0.6rem;
+        }
+
+        @include media(">phone", "<=tablet") {
+          width: 3.3rem;
+          height: 1.2rem;
+          font-size: 0.6rem;
+        }
+        @include media("<=phone") {
+          width: 3rem;
+          height: 1rem;
+          padding: 2px 3px;
+          font-size: 0.6rem;
+        }
+      }
+      .icon-btn {
+        @include media(">tablet", "<=desktop") {
+          font-size: 1rem;
+        }
+        @include media(">phone", "<=tablet") {
+          font-size: 1rem;
+        }
+        @include media("<=phone") {
+          font-size: 0.6rem;
+        }
       }
     }
     div:nth-child(1) {
@@ -58,8 +150,30 @@
       }
     }
     .edit-profile__btn {
-      button {
+      @include media(">phone", "<=tablet") {
+        padding: 2px 5px;
+
+        transform: translate(50px, -30px);
+      }
+      @include media("<=phone") {
+        padding: 3px 4px;
+        transform: translate(50px, -63px);
+      }
+
+      span {
         font-size: $fontSizeBtn;
+        height: 100%;
+        text-align: center;
+        cursor: pointer;
+
+        @include media(">phone", "<=tablet") {
+          padding: 1px 3px;
+          font-size: 1rem;
+        }
+        @include media("<=phone") {
+          padding: 1px 3px;
+          font-size: 0.6rem;
+        }
       }
     }
   }
@@ -69,13 +183,24 @@
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-
   border: solid 0.3rem white;
+  @include media(">tablet", "<=desktop") {
+    width: 9rem;
+    height: 9rem;
+  }
+  @include media(">phone", "<=tablet") {
+    width: 6rem;
+    height: 6rem;
+  }
+  @include media("<=phone") {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 .div-avatar {
   position: relative;
   cursor: pointer;
-  //   background-color: aquamarine;
+
   div {
     position: absolute;
     background-color: rgb(212, 212, 212);
@@ -84,6 +209,39 @@
     right: 0px;
     bottom: 1.5rem;
     cursor: pointer;
+
+    @include media(">tablet", "<=desktop") {
+      width: 1.5rem;
+      height: 1.5rem;
+      bottom: 1.5rem;
+    }
+
+    @include media(">phone", "<=tablet") {
+      width: 1.7rem;
+      height: 1.7rem;
+      top: 4.5rem;
+    }
+    @include media("<=phone") {
+      width: 1.3rem;
+      height: 1.3rem;
+      top: 2.8rem;
+    }
+    .camera {
+      position: absolute;
+      @include media(">tablet", "<=desktop") {
+        left: -4px;
+        top: -4px;
+      }
+
+      @include media(">phone", "<=tablet") {
+        left: -2.5px;
+        top: -3px;
+      }
+      @include media("<=phone") {
+        left: -5px;
+        top: -5px;
+      }
+    }
   }
 }
 .user-info {
@@ -91,20 +249,54 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: start;
+  // background-color: red;
+  @include media(">tablet", "<=desktop") {
+    min-width: 12rem;
+  }
+
+  @include media(">phone", "<=tablet") {
+    min-width: 12rem;
+  }
+
+  @include media("<=phone") {
+    // background-color: aqua;
+    padding: 0px 0px 0px 0.3rem;
+    margin-left: 0.3rem;
+    min-width: 8rem;
+    height: 8rem;
+  }
+
   span {
     text-align: left;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.3rem;
+    @include media(">tablet", "<=desktop") {
+      font-size: 1.3rem;
+    }
+    @include media(">phone", "<=tablet") {
+      font-size: 1.3rem;
+    }
+    @include media("<=phone") {
+      font-size: 0.7rem;
+    }
   }
   .follow {
     margin-bottom: 0.5rem;
     text-align: left;
     // background-color: aquamarine;
+    @include media("<=phone") {
+      margin-top: -0.3rem;
+    }
     span {
       font-size: 1rem;
       font-weight: 100;
       color: rgb(112, 112, 112);
+      @include media("<=phone") {
+        margin-top: 0.3rem;
+        font-size: 0.7rem;
+      }
     }
     span:nth-child(2) {
       margin-left: 1rem;

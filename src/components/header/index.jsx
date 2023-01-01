@@ -110,7 +110,7 @@ function ResponsiveAppBar() {
           .catch((error) => {
             alert("Error: " + error);
           });
-      }, [2000]);
+      }, [300]);
     }
     return () => {
       clearTimeout(delayDebounceFn);

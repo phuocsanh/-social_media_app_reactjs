@@ -6,8 +6,10 @@ export const getDataAPI = async (url, token) => {
   });
   return res;
 };
-export const postDataAPI = async (url, post, token) => {
-  const res = await axios.post(`${link}api/${url}`, post, {
+export const postDataAPI = async (url, data, token) => {
+  console.log("🚀 ~ file: fetchData.js ~ line 21 ~ postDataAPI ~ post", data);
+
+  const res = await axios.post(`${link}api/${url}`, data, {
     withCredentials: true,
     headers: {
       Authorization: token,
@@ -15,7 +17,7 @@ export const postDataAPI = async (url, post, token) => {
       Accept: "application/json",
     },
   });
-  console.log("🚀 ~ file: fetchData.js ~ line 18 ~ postDataAPI ~ res", res);
+  // console.log("🚀 ~ file: fetchData.js ~ line 18 ~ postDataAPI ~ res", res);?
   return res;
 };
 export const putDataAPI = async (url, post, token) => {

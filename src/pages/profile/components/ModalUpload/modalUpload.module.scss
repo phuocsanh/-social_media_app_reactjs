@@ -1,0 +1,82 @@
+.container {
+  width: 30rem;
+  text-align: center;
+}
+.modal-upload {
+  width: 100%;
+  // background-color: bisque;
+}
+.div-avatar {
+  position: relative;
+  cursor: pointer;
+
+  div {
+    position: absolute;
+    background-color: rgb(212, 212, 212);
+    border-radius: 50%;
+    padding: 0.2rem;
+    right: 0px;
+    bottom: 1.5rem;
+    cursor: pointer;
+  }
+}
+.avatar {
+  object-fit: cover;
+  width: 10rem;
+  height: 10rem;
+  border: solid 0.3rem white;
+}
+.bottom-btn {
+  margin-top: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.edit-avatar {
+  padding: 0px, 6rem;
+}
+.list-img {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: 100%;
+  span {
+    align-self: flex-start;
+    font-size: large;
+  }
+  div {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    // background-color: antiquewhite;
+
+    img {
+      width: 6.5rem;
+      height: 6rem;
+      margin-bottom: 1.5rem;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+    img:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+    img:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+  .btn-cancel {
+    width: 5rem;
+    margin-right: 1rem;
+  }
+  .btn-save {
+    width: 5rem;
+  }
+}
+.avatar-editor {
+  width: 22rem;
+  height: 22rem;
+}
